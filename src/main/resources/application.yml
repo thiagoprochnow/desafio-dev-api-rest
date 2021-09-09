@@ -1,0 +1,6 @@
+server:
+   port: ${DOCK_PORT}
+   
+spring:
+   main:
+      sources: br.com.desafio
