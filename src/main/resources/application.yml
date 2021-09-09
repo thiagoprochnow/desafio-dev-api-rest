@@ -4,3 +4,7 @@ server:
 spring:
    main:
       sources: br.com.desafio
+   datasource:
+      url: ${POSTGRES_URL}
+      username: ${POSTGRES_DESAFIO_USERNAME}
+      password: ${POSTGRES_DESAFIO_PASSWORD}
