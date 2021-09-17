@@ -1,3 +1,5 @@
+base.package:
+   br.com.desafio
 server:
    port: ${DOCK_PORT}
    
@@ -8,3 +10,7 @@ spring:
       url: ${POSTGRES_URL}
       username: ${POSTGRES_DESAFIO_USERNAME}
       password: ${POSTGRES_DESAFIO_PASSWORD}
+   jpa:
+      hibernate:
+         naming:
+            physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl

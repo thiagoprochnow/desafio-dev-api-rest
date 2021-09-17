@@ -1,4 +1,4 @@
-package br.com.desafio.domain.transacao;
+package br.com.desafio.domain.transaction;
 
 import java.util.Date;
 
