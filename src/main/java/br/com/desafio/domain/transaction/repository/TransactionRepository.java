@@ -27,8 +27,8 @@ public class TransactionRepository {
 		return transaction;
 	}
 	
-	public List<Transaction> getAllTransactions(Account accountBody) throws Exception {
-		List<Transaction> transactions = transactionInfraPostgreSQL.findAllByidConta(accountBody.getIdConta());
+	public List<Transaction> getAllTransactions(long idConta) throws Exception {
+		List<Transaction> transactions = transactionInfraPostgreSQL.findAllByidConta(idConta);
 		return transactions;
 	}
 }

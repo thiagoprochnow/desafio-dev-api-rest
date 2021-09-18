@@ -48,8 +48,8 @@ public class AccountService {
 	 * @return the created account information
 	 * @throws Exception
 	 */
-	public Account getAccount(Account accountBody) throws Exception {
-		return accountRepository.findById(accountBody.getIdConta());
+	public Account getAccount(long idConta) throws Exception {
+		return accountRepository.findById(idConta);
 	}
 	
 	/**
@@ -70,8 +70,8 @@ public class AccountService {
 	 * @return list of all transactions
 	 * @throws Exception
 	 */
-	public List<Transaction> getTransactions(Account accountBody) throws Exception {
-		List<Transaction> transactions = transactionRepository.getAllTransactions(accountBody);
+	public List<Transaction> getTransactions(long idConta) throws Exception {
+		List<Transaction> transactions = transactionRepository.getAllTransactions(idConta);
 		return transactions;
 	}
 }

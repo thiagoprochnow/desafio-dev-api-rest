@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.desafio.domain.account.entity.Account;
@@ -27,8 +28,8 @@ public class AccountController {
 	}
 	
 	@RequestMapping(value = "/getAccount", method = RequestMethod.GET)
-	public ResponseEntity<Account> getAccountEndpoint(@RequestBody Account accountBody) throws Exception {
-		Account account = accountService.getAccount(accountBody);
+	public ResponseEntity<Account> getAccountEndpoint(@RequestParam long idConta) throws Exception {
+		Account account = accountService.getAccount(idConta);
 		return ResponseEntity.ok(account);
 	}
 	
@@ -39,8 +40,8 @@ public class AccountController {
 	}
 	
 	@RequestMapping(value = "/getTransactions", method = RequestMethod.GET)
-	public ResponseEntity<List<Transaction>> getTransactionsEndpoint(@RequestBody Account accountBody) throws Exception {
-		List<Transaction> transactions = accountService.getTransactions(accountBody);
+	public ResponseEntity<List<Transaction>> getTransactionsEndpoint(@RequestParam long idConta) throws Exception {
+		List<Transaction> transactions = accountService.getTransactions(idConta);
 		return ResponseEntity.ok(transactions);
 	}
 }
