@@ -45,4 +45,16 @@ public class AccountService {
 	public Account getAccount(Account accountBody) throws Exception {
 		return accountRepository.findById(accountBody.getIdConta());
 	}
+	
+	/**
+	 * Recieve a accountBody with the contaId as request, and with it, fetch the account information in the database and block it by changing the flagAtivo to false
+	 * @param accountBody
+	 * @return the blocked account information
+	 * @throws Exception
+	 */
+	public Account blockAccount(Account accountBody) throws Exception {
+		Account account = accountRepository.findById(accountBody.getIdConta());
+		account.setFlagAtivo(false);
+		return accountRepository.updateAccountOnPostgreSQL(account);
+	}
 }
