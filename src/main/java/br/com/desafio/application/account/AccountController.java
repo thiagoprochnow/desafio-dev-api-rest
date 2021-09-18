@@ -22,4 +22,10 @@ public class AccountController {
 		Account createdAccount = accountService.createAccount(accountBody);
 		return ResponseEntity.ok(createdAccount);
 	}
+	
+	@RequestMapping(value = "/getAccount", method = RequestMethod.GET)
+	public ResponseEntity<Account> getAccountEndpoint(@RequestBody Account accountBody) throws Exception {
+		Account account = accountService.getAccount(accountBody);
+		return ResponseEntity.ok(account);
+	}
 }
