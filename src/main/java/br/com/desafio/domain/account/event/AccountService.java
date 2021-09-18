@@ -1,6 +1,7 @@
 package br.com.desafio.domain.account.event;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import br.com.desafio.application.common.Utils;
 import br.com.desafio.domain.account.entity.Account;
 import br.com.desafio.domain.account.repository.AccountRepository;
+import br.com.desafio.domain.transaction.entity.Transaction;
+import br.com.desafio.domain.transaction.repository.TransactionRepository;
 
 /**
  * 
@@ -23,6 +26,9 @@ public class AccountService {
 
 	@Autowired
 	AccountRepository accountRepository;
+	
+	@Autowired
+	TransactionRepository transactionRepository;
 	
 	/**
 	 * Recieve a accountBody as request, and with it, create a account in database
@@ -56,5 +62,16 @@ public class AccountService {
 		Account account = accountRepository.findById(accountBody.getIdConta());
 		account.setFlagAtivo(false);
 		return accountRepository.updateAccountOnPostgreSQL(account);
+	}
+	
+	/**
+	 * Recieve a accountBody with the contaId as request, and with it, fetch all transactions in the database of that account
+	 * @param accountBody
+	 * @return list of all transactions
+	 * @throws Exception
+	 */
+	public List<Transaction> getTransactions(Account accountBody) throws Exception {
+		List<Transaction> transactions = transactionRepository.getAllTransactions(accountBody);
+		return transactions;
 	}
 }

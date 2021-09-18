@@ -1,5 +1,7 @@
 package br.com.desafio.domain.transaction.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -23,5 +25,10 @@ public class TransactionRepository {
 	public Transaction insertTransactionOnPostgreSQL(Transaction transactionBody) throws Exception {
 		Transaction transaction = transactionInfraPostgreSQL.save(transactionBody);
 		return transaction;
+	}
+	
+	public List<Transaction> getAllTransactions(Account accountBody) throws Exception {
+		List<Transaction> transactions = transactionInfraPostgreSQL.findAllByidConta(accountBody.getIdConta());
+		return transactions;
 	}
 }
