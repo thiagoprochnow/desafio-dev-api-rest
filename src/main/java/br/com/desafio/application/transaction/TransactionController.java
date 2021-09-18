@@ -24,4 +24,10 @@ public class TransactionController {
 		Account account = transactionService.makeDeposit(transactionBody);
 		return ResponseEntity.ok(account);
 	}
+	
+	@RequestMapping(value = "/makeWithdraw", method = RequestMethod.POST)
+	public ResponseEntity<Account> makeWithdrawEndpoint(@RequestBody Transaction transactionBody) throws Exception {
+		Account account = transactionService.makeWithdraw(transactionBody);
+		return ResponseEntity.ok(account);
+	}
 }

@@ -11,4 +11,8 @@ public class Utils {
 		currentDate.setSeconds(0);
 		return currentDate;
 	}
+	
+	public static boolean isPositiveNumber(float number) {
+		return number > 0;
+	}
 }
