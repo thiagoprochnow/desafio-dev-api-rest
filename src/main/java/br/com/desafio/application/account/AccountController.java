@@ -29,7 +29,7 @@ public class AccountController {
 		return ResponseEntity.ok(account);
 	}
 	
-	@RequestMapping(value = "/blockAccount", method = RequestMethod.GET)
+	@RequestMapping(value = "/blockAccount", method = RequestMethod.POST)
 	public ResponseEntity<Account> blockAccountEndpoint(@RequestBody Account accountBody) throws Exception {
 		Account account = accountService.blockAccount(accountBody);
 		return ResponseEntity.ok(account);
