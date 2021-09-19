@@ -1,5 +1,6 @@
 package br.com.desafio.application.account;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,12 @@ public class AccountController {
 	@RequestMapping(value = "/getTransactions", method = RequestMethod.GET)
 	public ResponseEntity<List<Transaction>> getTransactionsEndpoint(@RequestParam long idConta) throws Exception {
 		List<Transaction> transactions = accountService.getTransactions(idConta);
+		return ResponseEntity.ok(transactions);
+	}
+	
+	@RequestMapping(value = "/getTransactionsByPeriod", method = RequestMethod.GET)
+	public ResponseEntity<List<Transaction>> getTransactionsByPeriodEndpoint(@RequestParam long idConta, @RequestParam Date periodStart, @RequestParam Date periodEnd) throws Exception {
+		List<Transaction> transactions = accountService.getTransactionsByPeriod(idConta, periodStart, periodEnd);
 		return ResponseEntity.ok(transactions);
 	}
 }

@@ -1,5 +1,6 @@
 package br.com.desafio.domain.transaction.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,11 @@ public class TransactionRepository {
 	
 	public List<Transaction> getAllTransactions(long idConta) throws Exception {
 		List<Transaction> transactions = transactionInfraPostgreSQL.findAllByidConta(idConta);
+		return transactions;
+	}
+	
+	public List<Transaction> getAllTransactionsByPeriod(long idConta, Date periodStart, Date periodEnd) throws Exception {
+		List<Transaction> transactions = transactionInfraPostgreSQL.findAllByPeriod(idConta, periodStart, periodEnd);
 		return transactions;
 	}
 }

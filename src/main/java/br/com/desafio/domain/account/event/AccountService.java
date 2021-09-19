@@ -74,4 +74,15 @@ public class AccountService {
 		List<Transaction> transactions = transactionRepository.getAllTransactions(idConta);
 		return transactions;
 	}
+	
+	/**
+	 * Recieve a accountBody with the contaId as request, and with it, fetch all transactions in the database of that account in a given period
+	 * @param accountBody, periodStart, periodEnd
+	 * @return list of all transactions in that period
+	 * @throws Exception
+	 */
+	public List<Transaction> getTransactionsByPeriod(long idConta, Date periodStart, Date periodEnd) throws Exception {
+		List<Transaction> transactions = transactionRepository.getAllTransactionsByPeriod(idConta, periodStart, periodEnd);
+		return transactions;
+	}
 }
