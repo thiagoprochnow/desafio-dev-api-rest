@@ -18,23 +18,12 @@ import br.com.desafio.infra.transaction.TransactionInfraPostgreSQL;
  */
 
 @Repository
-public class TransactionRepository {
+public interface TransactionRepository {
 
-	@Autowired
-	TransactionInfraPostgreSQL transactionInfraPostgreSQL;
+
+	public Transaction insertTransactionOnPostgreSQL(Transaction transactionBody) throws Exception;
 	
-	public Transaction insertTransactionOnPostgreSQL(Transaction transactionBody) throws Exception {
-		Transaction transaction = transactionInfraPostgreSQL.save(transactionBody);
-		return transaction;
-	}
+	public List<Transaction> getAllTransactions(long idConta) throws Exception;
 	
-	public List<Transaction> getAllTransactions(long idConta) throws Exception {
-		List<Transaction> transactions = transactionInfraPostgreSQL.findAllByidConta(idConta);
-		return transactions;
-	}
-	
-	public List<Transaction> getAllTransactionsByPeriod(long idConta, Date periodStart, Date periodEnd) throws Exception {
-		List<Transaction> transactions = transactionInfraPostgreSQL.findAllByPeriod(idConta, periodStart, periodEnd);
-		return transactions;
-	}
+	public List<Transaction> getAllTransactionsByPeriod(long idConta, Date periodStart, Date periodEnd) throws Exception;
 }

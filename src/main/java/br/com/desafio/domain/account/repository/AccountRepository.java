@@ -17,26 +17,11 @@ import br.com.desafio.infra.account.AccountInfraPostgreSQL;
  */
 
 @Repository
-public class AccountRepository {
-
-	@Autowired
-	AccountInfraPostgreSQL accountInfraPostgreSQL;
+public interface AccountRepository {
 	
-	public Account insertAccountOnPostgreSQL(Account accountBody) throws Exception {
-		Account account = accountInfraPostgreSQL.save(accountBody);
-		return account;
-	}
+	public Account insertAccountOnPostgreSQL(Account accountBody) throws Exception;
 	
-	public Account findById(long accountId) throws Exception {
-		Optional<Account> account = accountInfraPostgreSQL.findById(accountId);
-		if(account.isEmpty()) {
-			throw new NotFoundException("Account not found");
-		}
-		return account.get();
-	}
+	public Account findById(long accountId) throws Exception;
 	
-	public Account updateAccountOnPostgreSQL(Account account) throws Exception {
-		Account updatedAccount = accountInfraPostgreSQL.save(account);
-		return updatedAccount;
-	}
+	public Account updateAccountOnPostgreSQL(Account account) throws Exception;
 }
