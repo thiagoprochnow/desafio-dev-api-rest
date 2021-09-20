@@ -1,0 +1,20 @@
+1 - Create a directory and in it enter "git clone https://github.com/thiagoprochnow/desafio-dev-api-rest.git"
+
+2 - Import on Postman the downloaded collection name "Desafio Dock.postman_collection.json".
+
+3 - Make sure you have a docker installation configured to use.
+
+4 - Add the following envirnonment variables on the testing machine:
+ 
+export DOCK_PORT=9090
+export POSTGRES_DESAFIO_PASSWORD=admin
+export POSTGRES_DESAFIO_USERNAME=postgres
+export POSTGRES_URL=jdbc:postgresql://db:5432/desafio-dev
+export POSTGRES_PASSWORD=admin
+export POSTGRES_USERNAME=postgres
+
+5 - In the project folder type "docker-compose up"
+
+6 - Test by using the postman collection
+
+7 - OR, test by using the Swagger UI documentation by the url: http://localhost:9090/swagger-ui/
