@@ -1,7 +1,7 @@
 base.package:
    br.com.desafio
 server:
-   port: ${DOCK_PORT}
+   port: ${DOCK_PORT:9090}
    
 spring:
    main:
