@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "1bf77741-929d-4730-84df-e5225c92f0ea",
+		"name": "Desafio Dock",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idPessoa\": 1,\r\n    \"limiteSaqueDiario\": 10000.00,\r\n    \"flagAtivo\": true,\r\n    \"tipoConta\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/account/createAccount",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"account",
+						"createAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make Deposit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idConta\": 1,\r\n    \"valor\": 2500.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/transaction/makeDeposit",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"transaction",
+						"makeDeposit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make Withdraw",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idConta\": 1,\r\n    \"valor\": -500.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/transaction/makeWithdraw",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"transaction",
+						"makeWithdraw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Account Information",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/account/getAccount?idConta=1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"account",
+						"getAccount"
+					],
+					"query": [
+						{
+							"key": "idConta",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Block Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idConta\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/account/blockAccount",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"account",
+						"blockAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Account Transactions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/account/getTransactions?idConta=1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"account",
+						"getTransactions"
+					],
+					"query": [
+						{
+							"key": "idConta",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Transactions By Period (Extrato)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/account/getTransactionsByPeriod?idConta=1&periodStart=10/05/2020&periodEnd=10/10/2021",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"account",
+						"getTransactionsByPeriod"
+					],
+					"query": [
+						{
+							"key": "idConta",
+							"value": "1"
+						},
+						{
+							"key": "periodStart",
+							"value": "10/05/2020"
+						},
+						{
+							"key": "periodEnd",
+							"value": "10/10/2021"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:9090"
+		}
+	]
+}
