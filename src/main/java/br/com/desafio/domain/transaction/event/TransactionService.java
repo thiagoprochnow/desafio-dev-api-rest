@@ -39,6 +39,7 @@ public class TransactionService {
 	public Account makeDeposit(Transaction transactionBody) throws Exception {
 		Account userAccount = accountRepository.findById(transactionBody.getIdConta());
 		
+		validateIdConta(transactionBody.getIdConta());
 		if(!Utils.isPositiveNumber(transactionBody.getValor())) {
 			throw new BadRequestException("Transaction value must be a positive number");
 		}
@@ -63,6 +64,7 @@ public class TransactionService {
 	public Account makeWithdraw(Transaction transactionBody) throws Exception {
 		Account userAccount = accountRepository.findById(transactionBody.getIdConta());
 		
+		validateIdConta(transactionBody.getIdConta());
 		if(!Utils.isPositiveNumber(transactionBody.getValor())) {
 			throw new BadRequestException("Transaction value must be a positive number");
 		}
@@ -79,5 +81,12 @@ public class TransactionService {
 		accountRepository.updateAccountOnPostgreSQL(userAccount);
 		
 		return userAccount;
+	}
+	
+	// Fields validation
+	private void validateIdConta(long value) throws Exception {
+		if(value == 0) {
+			throw new BadRequestException("Please send a valid idConta");
+		}
 	}
 }
